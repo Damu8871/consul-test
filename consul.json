@@ -1,0 +1,41 @@
+{
+    "bootstrap": true,
+    "server": true,
+    "log_level": "DEBUG",
+    "enable_syslog": true,
+    "datacenter": "test-data-center",
+    "addresses" : {
+      "http": "0.0.0.0"
+    },
+    "bind_addr": "10.0.2.206",
+    "node_name": "test-server",
+    "data_dir": "/home/ubuntu/consuldata",
+    "ui_dir": "/home/ubuntu/consul-ui",
+    "acl_datacenter": "test-data-center",
+    "acl_master_token": "056847e7-7868-4e75-9702-ac9c3a307063",
+    "acl_default_policy": "deny",
+    "encrypt": "KyT7Vq4jn344OxxXL1mhPQ==",
+    "checks": [
+        {
+            "id" : "check_cpu_utilization",
+            "notes" : "Greater than 50% warn, greater than 75% fail.",
+            "name" : "CPU Utilization",
+            "script" : "/root/consul_demo/scripts/cpu_utilization.sh",
+            "interval" : "10s"
+        },
+        {
+          "id" : "check_mem_utilization",
+          "notes" : "Greater than 50% warn, greater than 75% fail.",
+          "name" : "MEM Utilization",
+          "script" : "/root/consul_demo/scripts/mem_utilization.sh",
+          "interval" : "10s"
+        },
+        {
+          "id" : "check_hdd_utilization",
+          "notes" : "Greater than 50% warn, greater than 75% fail.",
+          "name" : "HDD Utilization",
+          "script" : "/root/consul_demo/scripts/hdd_utilization.sh",
+          "interval" : "10s"
+        }
+    ]
+}
